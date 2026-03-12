@@ -1,26 +1,211 @@
 @import "tailwindcss";
 
+/* ------------------------------
+   TAILWIND
+------------------------------ */
+@tailwind utilities;
+
+
+/* ------------------------------
+   FONTS
+------------------------------ */
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/PPNeueMontreal-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/PPNeueMontreal-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ------------------------------
+   ROOT DESIGN TOKENS
+------------------------------ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* Brand Colors */
+
+  --rug-red: #ba1200;
+  --rug-dark: #07020d;
+  --rug-light: #e8e9f3;
+  --rug-white: #ffffff;
+
+  /* UI */
+
+  --border-subtle: #ececec;
+
+  /* Typography */
+
+  --font-primary: "NeueMontreal", system-ui, -apple-system, sans-serif;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* ------------------------------
+   BASE STYLES
+------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  background: var(--rug-white);
+  color: var(--rug-red);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ------------------------------
+   TEXT SELECTION
+------------------------------ */
+
+::selection {
+  background: var(--rug-red);
+  color: white;
+}
+
+
+/* ------------------------------
+   TYPOGRAPHY
+------------------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--rug-red);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--rug-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ------------------------------
+   IMAGES
+------------------------------ */
+
+img,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ------------------------------
+   CONTAINER SYSTEM
+------------------------------ */
+
+.container-rughaus {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+
+/* ------------------------------
+   BUTTON BASE
+------------------------------ */
+
+.btn-primary {
+  background: var(--rug-red);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+
+/* ------------------------------
+   GRID GALLERY (for rugs)
+------------------------------ */
+
+.rug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+
+/* ------------------------------
+   SCROLLBAR (subtle luxury feel)
+------------------------------ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rug-red);
+  border-radius: 10px;
+}
+
+
+/* ------------------------------
+   UTILITIES
+------------------------------ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-rughaus {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-rughaus {
+    padding-inline: 2rem;
+  }
 }
