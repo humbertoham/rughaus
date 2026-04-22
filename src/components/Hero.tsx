@@ -29,15 +29,31 @@ const item: Variants = {
   },
 };
 
+const WHATSAPP_NUMBER = "5218992798635";
+const INSTAGRAM_URL = "https://www.instagram.com/rughausco";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete RUGHAUS"
+)}`;
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
           {/* IMAGEN DE FONDO */}
 
+      <Image
+        src="/images/rugs/1.jpeg"
+        alt="Tapete RUGHAUS"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 h-full w-full object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-white/80" />
+
 
       {/* CONTENEDOR */}
 
-      <div className="container-rughaus flex min-h-[85vh] flex-col justify-center py-24">
+      <div className="container-rughaus relative z-10 flex min-h-[85vh] flex-col justify-center py-24">
 
         <motion.div
           variants={container}
@@ -84,19 +100,23 @@ export default function Hero() {
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <Link
-              href="/gallery"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-rug-red px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
-              Explorar tapetes
+              Cotizar tapete
               <FiArrowRight className="transition group-hover:translate-x-1" />
             </Link>
 
             <Link
-              href="/contact"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-black/10 px-6 py-3 text-sm font-medium text-rug-dark transition hover:border-rug-red hover:text-rug-red"
             >
               <FiMessageCircle />
-              Cotizar tapete
+              Ver Instagram
             </Link>
           </motion.div>
 
@@ -113,7 +133,7 @@ export default function Hero() {
           duration: 1.6,
           repeat: Infinity,
         }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs tracking-widest text-rug-dark/40"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-xs tracking-widest text-rug-dark/40"
       >
         SCROLL
       </motion.div>

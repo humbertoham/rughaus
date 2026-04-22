@@ -4,10 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const images = [
-  "/images/inspiration1.jpg",
-  "/images/inspiration2.jpg",
-  "/images/inspiration3.jpg",
-  "/images/inspiration4.jpg",
+  "/images/rugs/4.jpeg",
+  "/images/rugs/5.jpeg",
+  "/images/rugs/6.jpeg",
+  "/images/rugs/7.jpeg",
 ];
 
 export default function Inspiration() {
@@ -57,6 +57,7 @@ export default function Inspiration() {
               src={images[0]}
               alt="Espacio con tapete RUGHAUS"
               fill
+              sizes="(min-width: 1024px) 66vw, (min-width: 768px) 100vw, 100vw"
               className="object-cover transition duration-700 hover:scale-105"
             />
           </motion.div>
@@ -74,6 +75,7 @@ export default function Inspiration() {
               src={images[1]}
               alt="Interior con alfombra moderna"
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover transition duration-700 hover:scale-105"
             />
           </motion.div>
@@ -91,6 +93,7 @@ export default function Inspiration() {
               src={images[2]}
               alt="Tapete contemporáneo"
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover transition duration-700 hover:scale-105"
             />
           </motion.div>
@@ -108,6 +111,7 @@ export default function Inspiration() {
               src={images[3]}
               alt="Espacio moderno con alfombra"
               fill
+              sizes="(min-width: 1024px) 66vw, (min-width: 768px) 100vw, 100vw"
               className="object-cover transition duration-700 hover:scale-105"
             />
           </motion.div>

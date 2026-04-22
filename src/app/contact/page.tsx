@@ -15,7 +15,9 @@ export default function ContactPage() {
     e.preventDefault();
 
     const text = `
-Hola, soy ${name}
+Hola, quiero cotizar esta alfombra: tapete RUGHAUS
+
+Soy ${name}
 
 Email: ${email}
 
@@ -27,7 +29,7 @@ ${message}
 
     const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (

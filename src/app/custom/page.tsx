@@ -17,7 +17,7 @@ export default function CustomPage() {
     e.preventDefault();
 
     const text = `
-Hola, quiero diseñar un tapete personalizado.
+Hola, quiero cotizar esta alfombra: tapete personalizado.
 
 Nombre: ${name}
 Email: ${email}
@@ -31,7 +31,7 @@ ${message}
 
     const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (

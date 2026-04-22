@@ -24,6 +24,11 @@ const steps = [
   },
 ];
 
+const WHATSAPP_NUMBER = "5218992798635";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete personalizado"
+)}`;
+
 export default function CustomRugs() {
   return (
     <section className="py-32">
@@ -42,9 +47,10 @@ export default function CustomRugs() {
             className="relative h-[420px] w-full overflow-hidden rounded-2xl lg:h-[520px]"
           >
             <Image
-              src="/images/custom-rug.jpg"
+              src="/images/rugs/3.jpeg"
               alt="Tapete personalizado RUGHAUS"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </motion.div>
@@ -109,7 +115,9 @@ export default function CustomRugs() {
             {/* CTA */}
 
             <Link
-              href="/contact"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-rug-red px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
               Cotizar tapete personalizado

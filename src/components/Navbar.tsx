@@ -18,6 +18,11 @@ const navLinks = [
   { name: "Nosotros", href: "/about" },
 ];
 
+const WHATSAPP_NUMBER = "5218992798635";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete RUGHAUS"
+)}`;
+
 const menuContainer: Variants = {
   hidden: {
     opacity: 0,
@@ -132,7 +137,9 @@ export default function Navbar() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href="/contact"
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 rounded-full bg-rug-red px-5 py-3 text-sm font-medium text-white shadow-[0_10px_30px_rgba(186,18,0,0.16)] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(186,18,0,0.24)]"
                 >
                   <FiMessageCircle className="text-base transition-transform duration-300 group-hover:scale-110" />
@@ -237,7 +244,9 @@ export default function Navbar() {
                     className="mt-6 grid gap-3"
                   >
                     <Link
-                      href="/contact"
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
                       className="group inline-flex items-center justify-center gap-2 rounded-full bg-rug-red px-5 py-4 text-sm font-medium text-white shadow-[0_12px_35px_rgba(186,18,0,0.18)] transition-all duration-300 hover:translate-y-[-1px]"
                     >

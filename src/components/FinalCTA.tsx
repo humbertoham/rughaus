@@ -4,6 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
+const WHATSAPP_NUMBER = "5218992798635";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete RUGHAUS"
+)}`;
+
 export default function FinalCTA() {
   return (
     <section className="relative py-32">
@@ -45,7 +50,9 @@ export default function FinalCTA() {
             className="mt-10 flex justify-center"
           >
             <Link
-              href="/contact"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-rug-red px-7 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
               Cotizar tapete

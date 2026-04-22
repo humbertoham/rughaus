@@ -3,65 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import RugCard from "@/components/RugCard";
+import rugsData from "@/data/rugs";
 
-const rugs = [
-  {
-    name: "Noir Flow",
-    slug: "noir-flow",
-    size: "200 × 300 cm",
-    category: "modern",
-    image: "/images/rug1.jpg",
-    href: "/rugs/noir-flow",
-    status: "Disponible",
-  },
-  {
-    name: "Stone Balance",
-    slug: "stone-balance",
-    size: "180 × 280 cm",
-    category: "minimal",
-    image: "/images/rug2.jpg",
-    href: "/rugs/stone-balance",
-    status: "Disponible",
-  },
-  {
-    name: "Organic Lines",
-    slug: "organic-lines",
-    size: "220 × 320 cm",
-    category: "organic",
-    image: "/images/rug3.jpg",
-    href: "/rugs/organic-lines",
-    status: "Disponible",
-  },
-  {
-    name: "Soft Geometry",
-    slug: "soft-geometry",
-    size: "200 × 300 cm",
-    category: "modern",
-    image: "/images/rug4.jpg",
-    href: "/rugs/soft-geometry",
-    status: "Disponible",
-  },
-  {
-    name: "Natural Flow",
-    slug: "natural-flow",
-    size: "180 × 260 cm",
-    category: "organic",
-    image: "/images/rug5.jpg",
-    href: "/rugs/natural-flow",
-    status: "Disponible",
-  },
-  {
-    name: "Urban Texture",
-    slug: "urban-texture",
-    size: "220 × 320 cm",
-    category: "minimal",
-    image: "/images/rug6.jpg",
-    href: "/rugs/urban-texture",
-    status: "Disponible",
-  },
-];
+const rugs = rugsData.map((rug) => ({
+  ...rug,
+  status: "Disponible",
+}));
 
-const filters = ["all", "modern", "minimal", "organic"];
+const filters = ["all", ...Array.from(new Set(rugs.map((rug) => rug.category)))];
 
 export default function InventoryPage() {
   const [filter, setFilter] = useState("all");

@@ -27,6 +27,11 @@ const steps = [
   },
 ];
 
+const WHATSAPP_NUMBER = "5218992798635";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete RUGHAUS"
+)}`;
+
 export default function Process() {
   return (
     <section className="py-32 bg-rug-light/40">
@@ -95,7 +100,9 @@ export default function Process() {
           className="mt-20 flex justify-center"
         >
           <Link
-            href="/contact"
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-rug-red px-7 py-3 text-sm font-medium text-white transition hover:opacity-90"
           >
             Cotizar tapete

@@ -9,9 +9,17 @@ interface Rug {
   size: string;
   category: string;
   image: string;
+  description: string;
 }
 
+const WHATSAPP_NUMBER = "5218992798635";
+const INSTAGRAM_URL = "https://www.instagram.com/rughausco";
+
 export default function RugPageClient({ rug }: { rug: Rug }) {
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    `Hola, quiero cotizar esta alfombra: ${rug.name}`
+  )}`;
+
   return (
     <main className="min-h-screen py-24">
 
@@ -53,6 +61,10 @@ export default function RugPageClient({ rug }: { rug: Rug }) {
                 {rug.name}
               </h1>
 
+              <p className="max-w-xl text-lg text-rug-dark/70">
+                {rug.description}
+              </p>
+
               <p className="text-lg text-rug-dark">
                 Tamaño: {rug.size}
               </p>
@@ -74,21 +86,27 @@ export default function RugPageClient({ rug }: { rug: Rug }) {
 
             <div className="pt-6 flex flex-wrap gap-4">
 
-              <motion.button
+              <motion.a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary"
               >
                 Solicitar versión personalizada
-              </motion.button>
+              </motion.a>
 
-              <motion.button
+              <motion.a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 border border-neutral-300 rounded-lg"
               >
                 Contactar al estudio
-              </motion.button>
+              </motion.a>
 
             </div>
 

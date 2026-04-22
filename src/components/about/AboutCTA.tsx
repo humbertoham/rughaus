@@ -4,6 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
+const WHATSAPP_NUMBER = "5218992798635";
+const INSTAGRAM_URL = "https://www.instagram.com/rughausco";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete personalizado"
+)}`;
+
 export default function AboutCTA() {
   return (
     <section className="relative py-32">
@@ -47,7 +53,9 @@ export default function AboutCTA() {
               whileTap={{ scale: 0.97 }}
             >
               <Link
-                href="/custom"
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-rug-red px-7 py-3 text-sm font-medium text-white transition hover:opacity-90"
               >
                 Crear diseño personalizado
@@ -60,7 +68,9 @@ export default function AboutCTA() {
               whileTap={{ scale: 0.97 }}
             >
               <Link
-                href="/gallery"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-rug-red px-7 py-3 text-sm font-medium text-rug-red transition hover:bg-rug-red hover:text-white"
               >
                 Explorar colección

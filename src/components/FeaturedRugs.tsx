@@ -3,27 +3,9 @@
 import RugCard from "./RugCard";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import rugs from "@/data/rugs";
 
-const rugs = [
-  {
-    name: "Noir Flow",
-    size: "200 × 300 cm",
-    image: "/images/rug1.jpg",
-    href: "/inventory/noir-flow",
-  },
-  {
-    name: "Stone Balance",
-    size: "180 × 280 cm",
-    image: "/images/rug2.jpg",
-    href: "/inventory/stone-balance",
-  },
-  {
-    name: "Organic Lines",
-    size: "220 × 320 cm",
-    image: "/images/rug3.jpg",
-    href: "/inventory/organic-lines",
-  },
-];
+const INSTAGRAM_URL = "https://www.instagram.com/rughausco";
 
 export default function FeaturedRugs() {
   return (
@@ -57,7 +39,9 @@ export default function FeaturedRugs() {
           </motion.div>
 
           <Link
-            href="/gallery"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-sm font-medium text-rug-dark transition hover:text-rug-red"
           >
             Ver todos →
@@ -69,7 +53,7 @@ export default function FeaturedRugs() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-          {rugs.map((rug) => (
+          {rugs.slice(0, 3).map((rug) => (
             <RugCard key={rug.name} {...rug} />
           ))}
 

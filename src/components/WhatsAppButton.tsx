@@ -10,7 +10,7 @@ message?: string;
 
 export default function FloatingWhatsApp({
 phone,
-message = "Hola, me gustaría información sobre sus tapetes.",
+message = "Hola, quiero cotizar esta alfombra: tapete RUGHAUS",
 }: FloatingWhatsAppProps) {
 
 const encodedMessage = encodeURIComponent(message);

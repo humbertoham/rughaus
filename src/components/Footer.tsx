@@ -23,6 +23,12 @@ const legal = [
   { name: "Términos", href: "/terms" },
 ];
 
+const WHATSAPP_NUMBER = "5218992798635";
+const INSTAGRAM_URL = "https://www.instagram.com/rughausco";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hola, quiero cotizar esta alfombra: tapete RUGHAUS"
+)}`;
+
 export default function Footer() {
   return (
     <footer className="mt-32 border-t border-black/5 bg-white">
@@ -58,7 +64,9 @@ export default function Footer() {
               whileTap={{ scale: 0.98 }}
             >
               <Link
-                href="/contact"
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-rug-red px-5 py-3 text-sm font-medium text-white shadow-md transition hover:opacity-90"
               >
                 <FiMessageCircle />
@@ -127,8 +135,9 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="https://wa.me/"
+                  href={whatsappHref}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-rug-dark transition hover:text-rug-red"
                 >
                   <FiMessageCircle />
@@ -138,8 +147,9 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="https://instagram.com/rughausco"
+                  href={INSTAGRAM_URL}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-rug-dark transition hover:text-rug-red"
                 >
                   <FiInstagram />
@@ -150,6 +160,7 @@ export default function Footer() {
                 <a
                   href="https://facebook.com/rughaus.co"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-rug-dark transition hover:text-rug-red"
                 >
                   <FiFacebook/>

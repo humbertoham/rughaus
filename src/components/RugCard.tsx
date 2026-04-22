@@ -9,9 +9,16 @@ type RugCardProps = {
   image: string;
   size: string;
   href: string;
+  description?: string;
 };
 
-export default function RugCard({ name, image, size, href }: RugCardProps) {
+const WHATSAPP_NUMBER = "5218992798635";
+
+export default function RugCard({ name, image, size, description }: RugCardProps) {
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    `Hola, quiero cotizar esta alfombra: ${name}`
+  )}`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -20,7 +27,13 @@ export default function RugCard({ name, image, size, href }: RugCardProps) {
       transition={{ duration: 0.6 }}
       className="group"
     >
-      <Link href={href} className="block">
+      <Link
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+        aria-label={`Cotizar ${name} por WhatsApp`}
+      >
 
         {/* Imagen */}
 
@@ -38,9 +51,9 @@ export default function RugCard({ name, image, size, href }: RugCardProps) {
 
         {/* Info */}
 
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-start justify-between gap-4">
 
-          <div>
+          <div className="min-w-0">
             <h3 className="text-sm font-semibold text-rug-dark group-hover:text-rug-red transition">
               {name}
             </h3>
@@ -48,10 +61,16 @@ export default function RugCard({ name, image, size, href }: RugCardProps) {
             <p className="text-sm text-rug-dark/60">
               {size}
             </p>
+
+            {description && (
+              <p className="mt-2 line-clamp-2 text-sm text-rug-dark/50">
+                {description}
+              </p>
+            )}
           </div>
 
-          <span className="text-xs uppercase tracking-wider text-rug-dark/50 group-hover:text-rug-red transition">
-            Ver
+          <span className="shrink-0 text-xs uppercase tracking-wider text-rug-dark/50 group-hover:text-rug-red transition">
+            Cotizar
           </span>
 
         </div>
